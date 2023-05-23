@@ -1,0 +1,61 @@
+<html><head>
+<title>in</title>
+</head>
+<body>
+
+  <section style="background-image: url(static/images/catcamera1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+    
+                <center>
+                <h2 class="mt-5" style="color: aliceblue;">LIVE CAMERA</h2>
+                <form method="post" action="{{ url_for('tasks') }}">
+                <input type="submit" style="background-color: rgb(196, 145, 79); border-radius: 10px;" value="Stop/Start" name="stop" />
+                <input type="submit" style="background-color: rgb(2, 133, 199); border-radius: 10px;" value="Capture" name="click"/>
+                <input type="submit" style="background-color: rgb(81, 182, 96); border-radius: 10px;" value="predict" name="predict"/>
+                </form>
+                <img src="{{ url_for('video_feed') }}" height="80%">
+                <h3 style="font-family: courier; color: aliceblue;">Instructions:</h3>
+                <ol style="font-family: courier; color: rgb(36, 104, 164);">
+                <li>Stop/Start--Toggle between stop or start live streaming</li>
+                <li>Capture--Take still-shot and save in the 'shots' directory</li>
+                <li class="button">
+						<a class="button" href="{{ url_for('home') }}">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+				
+					<li class="button">
+						<a class="button" href="{{ url_for('disease') }}">Disease</a>
+					</li>
+                </ol>	
+              </center>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="ftco-section-parallax">
+        <div class="parallax-img d-flex align-items-center">
+          <div class="container">
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                <h2>Subcribe to our Newsletter</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+                <div class="row d-flex justify-content-center mt-5">
+                  <div class="col-md-8">
+                    <form action="#" class="subscribe-form">
+                      <div class="form-group d-flex">
+                        <input type="text" class="form-control" placeholder="Enter email address">
+                        <input type="submit" value="Subscribe" class="submit px-3">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </body>

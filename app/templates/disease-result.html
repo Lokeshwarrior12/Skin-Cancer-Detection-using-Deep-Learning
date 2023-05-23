@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aesthetic Template">
+    <meta name="keywords" content="Aesthetic, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aesthetic | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="static/css2/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="static/css2/style.css" type="text/css">
+
+    <script src="static/js2/jquery-3.3.1.min.js"></script>
+    <script src="static/js2/bootstrap.min.js"></script>
+    <script src="static/js2/jquery.magnific-popup.min.js"></script>
+    <script src="static/js2/masonry.pkgd.min.js"></script>
+    <script src="static/js2/jquery-ui.min.js"></script>
+    <script src="static/js2/jquery.nice-select.min.js"></script>
+    <script src="static/js2/jquery.slicknav.js"></script>
+    <script src="static/js2/owl.carousel.min.js"></script>
+    <script src="static/js2/main.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="background-color: #1C00ff00;">
+		<div class="container">
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url_for('home') }}">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+				
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('disease') }}">Disease</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{  url_for('login') }}">Login</a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{  url_for('about') }}">About</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{  url_for('contact') }}">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{  url_for('blog') }}">News</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{  url_for('doctor') }}">Doctor</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{  url_for('blogdetails') }}">Blogs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{  url_for('services') }}">Services</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+    
+
+    {% block body %}
+<section style="background-image: url('static/images/hero-bg.jpg');">
+<br><h1><center><b>Clinical Advices</b></center></h1>
+<div class="container py-2 mx-auto my-50 h-10 " style="margin: 3rem; background-color:rgb(178, 201, 214);">
+  <div class="row">
+      <div class="col-sm py-2 py-md-3">
+          <div class="card card-body" style="justify-content: center; background-color:rgb(71, 191, 210)">
+            <p class="text-center" style="color: rgb(244, 241, 241); font-size: 22px; background-color:rgb(46, 131, 209)">{{ prediction }} {{ prob }}%</p>
+            <br><br>
+            <h4 style="color: black;"><b>What is {{prediction}}?</b></h2>
+            <h6 style="color: rgb(248, 248, 248);">{{ wht }}</h4>
+            <br>
+            <h4 style="color: black;"><b>The Symptoms Are:</b></h2>
+            <h6 style="color: rgb(242, 241, 241);">{{ symtom }}</h4>
+            <br>
+            <h4 style="color: black;"><b>Medicinal Recommendation</b></h2>
+            <h6 style="color: rgb(238, 238, 238);">{{ medicine }}</h4><br>
+                <button value="submit" type="submit" style="border-radius: 10px;"  for="search_query" onclick="{{ url_for('google') }}" >Know more about {{prediction}}</button>
+                <div class="services__btn">
+                    <a href="{{ url_for('contact')}}" class="primary-btn"><b style="color: black;">Consult Skin Specialist</a>
+                </div>
+            </div>
+      </div>
+  </div>
+</div>
+</section>
+<section class="consultation">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="consultation__form">
+                    <div class="section-title">
+                        <span>REQUEST FOR YOUR</span>
+                        <h2>Consultation</h2>
+                    </div>
+                    <form action="{{ url_for('send_email') }}" method="post">
+                        <label for="name">Name:</label>
+                        <input type="text" placeholder="Name">
+                        <label for="email">Email:</label>
+                        <input type="email" placeholder="Email">
+                        <div class="datepicker__item">
+                            <label for="date">Date:</label>
+                            <input type="date" placeholder="Date" class="datepicker">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <label for="phone">Phone No:</label>
+                        <input type="number" name="number" required>
+                        <label for="details">Appointment Details:</label>
+                        <select>
+                            <option value="">Type of service</option>
+                            <option value="">Advanced equipment</option>
+                            <option value="">Qualified doctors</option>
+                            <option value="">Certified services</option>
+                            <option value="">Emergency care</option>
+                        </select>
+                        <button type="submit" class="site-btn" value="submit">Book appoitment</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="consultation__text">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="consultation__text__item">
+                                <div class="section-title">
+                                    <span>Welcon to Aesthetic</span>
+                                    <h2>Find Best Doctors With <b>AESTHETIC</b></h2>
+                                </div>
+                                <p>30 Years of experience in Cosmetic Surgery.Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                                dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="consultation__video set-bg" data-setbg="img/consultation-video.jpg">
+                                <a href="https://www.youtube.com/watch?v=PXsuI67s2AA" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services spad set-bg" style="background-image: url('static/images/1.jpg');">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-6">
+              <div class="section-title">
+                  <span>Our services</span>
+                  <h2 style="color: black;">Offer for you</h2>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="services__btn">
+                  <a href="{{ url_for('contact')}}" class="primary-btn"><b style="color: black;">Contact us</a>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-6 col-md-6">
+              <div class="services__item">
+                  <div class="services__item__icon">
+                      <span class="flatico-044-aesthetic"></span>
+                  </div>
+                  <div class="services__item__text">
+                      <h5>Body procedures</h5>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+              <div class="services__item">
+                  <div class="services__item__icon">
+                      <span class="flatico-027-beauty"></span>
+                  </div>
+                  <div class="services__item__text">
+                      <h5>Facial Procedures</h5>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+              <div class="services__item">
+                  <div class="services__item__icon">
+                      <span class="flatico-031-anatomy"></span>
+                  </div>
+                  <div class="services__item__text">
+                      <h5>Skin Lightening</h5>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+              <div class="services__item">
+                  <div class="services__item__icon">
+                      <span class="flatico-008-abdominoplasty"></span>
+                  </div>
+                  <div class="services__item__text">
+                      <h5>Skin care & Beauty</h5>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor aliqua.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}
+
+<footer class="footer">
+    <div class="footer__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer__logo">
+                        <a href="#"><img src="static/img/footer-logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8">
+                    <div class="footer__newslatter">
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="footer__widget">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Departments</a></li>
+                        <li><a href="#">Find a Doctor</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="footer__widget">
+                    <h5>Quick links</h5>
+                    <ul>
+                        <li><a href="#">Facial Fillers</a></li>
+                        <li><a href="#">Breast Surgery</a></li>
+                        <li><a href="#">Body Lifts</a></li>
+                        <li><a href="#">Face & Neck</a></li>
+                        <li><a href="#">Fat Reduction</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__address">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+                        <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+                        <li><i class="fa fa-envelope"></i> Support@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-6">
+                <div class="footer__map">
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                    height="190" style="border:0" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <div class="footer__copyright__text">
+                        <p>Thank &copy; <script>document.write(new Date().getFullYear());</script> YOU | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+                <div class="col-lg-5">
+                    <ul>
+                        <li>All Rights Reserved</li>
+                        <li>Terms & Use</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="static/js2/jquery-3.3.1.min.js"></script>
+    <script src="static/js2/bootstrap.min.js"></script>
+    <script src="static/js2/jquery.magnific-popup.min.js"></script>
+    <script src="static/js2/masonry.pkgd.min.js"></script>
+    <script src="static/js2/jquery-ui.min.js"></script>
+    <script src="static/js2/jquery.nice-select.min.js"></script>
+    <script src="static/js2/jquery.slicknav.js"></script>
+    <script src="static/js2/owl.carousel.min.js"></script>
+    <script src="static/js2/main.js"></script>
+</body>

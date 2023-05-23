@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Harvestify - Disease Detection</title>
+  </head>
+  <body>
+    <h1>Harvestify - Disease Detection</h1>
+    <p>Prediction: {{ prediction }}</p>
+    <p>Symptom: {{ symptom }}</p>
+    <p>Medicine: {{ medicine }}</p>
+    <p>Probability: {{ prob }}</p>
+    
+    <form action="/create_pdf" method="POST">
+      <input type="hidden" name="title" value="{{ title }}">
+      <input type="hidden" name="prediction" value="{{ prediction }}">
+      <input type="hidden" name="symptom" value="{{ symptom }}">
+      <input type="hidden" name="medicine" value="{{ medicine }}">
+      <input type="hidden" name="probability" value="{{ prob }}">
+      <button type="submit">Download PDF</button>
+    </form>
+    <form action="/generate-pdf" method="POST">
+        <textarea name="paragraph"></textarea>
+        <br>
+        <button type="submit">Generate PDF</button>
+    </form>
+  </body>
+</html>

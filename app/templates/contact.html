@@ -1,0 +1,79 @@
+{% extends 'disease-result.html' %}{% block body %}
+    
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="contact__widget">
+                        <div class="contact__widget__icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="contact__widget__text">
+                            <h5>Address</h5>
+                            <p>Los Angeles Gournadi, 1230 Bariasl</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="contact__widget">
+                        <div class="contact__widget__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="contact__widget__text">
+                            <h5>Hotline</h5>
+                            <p>1-677-124-44227 • 1-688-356-66889</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="contact__widget">
+                        <div class="contact__widget__icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="contact__widget__text">
+                            <h5>Email</h5>
+                            <p>Support@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact__content">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="contact__pic">
+                            <img src="static/img/contact-pic.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="contact__form">
+                            <h3>Get in touch</h3>
+                            <form action="{{ url_for('send_email') }}" method="post">
+                                <label for="name">Name:</label>
+                                <input type="text" name="name" required>
+                        
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" required>
+                        
+                                <label for="date">Date:</label>
+                                <input type="date" name="date" required>
+                                
+                                <label for="time">Time:</label><div class="icon"><span class="ion-ios-clock"></span></div>
+                                <input type="time" name="time" min="09:00" max="18:00" required>
+        
+                                <label for="phone">Phone No:</label>
+                                <input type="number" name="number" required>
+                        
+                                <label for="details">Appointment Details:</label>
+                                <textarea name="details" rows="5" cols="40" required></textarea>
+                        
+                                <input class="form-control-submit-button" type="submit" value="Submit" style="background-color: antiquewhite; border-radius: 10px;" placeholder="Book an Appointment">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+{% endblock %}
