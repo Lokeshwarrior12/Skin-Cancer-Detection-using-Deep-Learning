@@ -136,7 +136,7 @@ img_size=(300, 300)
 
 
 app = Flask(__name__)
-openai.api_key = "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"
+openai.api_key = "your_api_key"
 
 # render home page
 
@@ -191,7 +191,7 @@ def live1():
     path = "out.jpg"
     csv_path = "class.csv"
 
-    # model_path="C:/Users/PYTHONFABHOST/Desktop/new project work/skin disease using efficientnet/EfficientNetB3-skindisease-83.00.h5"
+    
     class_name, probability, symtom, medicine, wht = predictor(path, csv_path, crop_image=False)
     prediction = Markup(class_name)
     print(probability)
@@ -382,8 +382,8 @@ def send_email():
 
     message = f"Hi,\n\n{name} has requested an appointment on {date} at {time}.\n Please conform your Phone number{phone} and \nDetails:\n{details}"
 
-    sender_email = 'lokeshwarrior12@gmail.com'
-    sender_password = 'cdylcwawkmdesndw'
+    sender_email = 'your_email'
+    sender_password = 'your_password'
     recipient_email = email
 
     try:
